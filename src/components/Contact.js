@@ -1,8 +1,10 @@
 import React from 'react';
+import {useParams} from 'react-router-dom';
 const Contact = ()=>{
+    const {name} = useParams();
     return(
         <React.Fragment>
-            <p>This is contact component</p>
+            <p>Welcome to contact {name}</p>
         </React.Fragment>
     )
 }
