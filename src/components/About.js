@@ -1,5 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import {Table} from 'react-bootstrap';
+import {BrowserRouter,Link,Route} from 'react-router-dom';
+import Profile from './components/Profile';
+
 const About = ()=>{
 const [data,setData] = useState([]);
 useEffect(()=>{
@@ -22,9 +25,11 @@ useEffect(()=>{
                    <td>User Name</td>
                    <td>Email</td>
                    <td>Address</td>
+                   <td>Action</td>
                 </tr>
                 </thead>
                 <tbody>
+                <BrowserRouter>
                 {
                     data.map((item,i=0)=>
                         <tr key={i+1}>
@@ -33,9 +38,12 @@ useEffect(()=>{
                         <td>{item.name}</td>
                         <td>{item.username}</td>
                         <td>{item.address.street},{item.address.zipcode}</td>
+                        <td><Link to={"/Profile/"+item.id}>Detail</Link></td>
                         </tr>
                     )
                 }
+                <Route path="/Profile/:id"><Profile /></Route>
+                </BrowserRouter>
                 </tbody>
                 </Table>
         </React.Fragment>

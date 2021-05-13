@@ -7,7 +7,6 @@ const [counter,setCounter] = useState(0);
         <React.Fragment>
             <br></br>
             <h2 style={{textAlign:'center'}}>Array of object recieved by props, Counter : {counter}</h2>
-            <center><button onClick={()=>setCounter(counter+1)}>Update counter</button></center>
             <Table striped bordered hover>
                     <thead>
                       <tr>
@@ -37,7 +36,7 @@ const [counter,setCounter] = useState(0);
             }
              </tbody>
             </Table>
-         
+            <center><button onClick={()=>setCounter(counter+1)}>Update counter</button></center>
             
         </React.Fragment>
     )
