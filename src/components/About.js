@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import {Table} from 'react-bootstrap';
 import {BrowserRouter,Link,Route} from 'react-router-dom';
-import Profile from './components/Profile';
+import Profile from '../components/Profile';
 
 const About = ()=>{
+
 const [data,setData] = useState([]);
 useEffect(()=>{
     fetch("https://jsonplaceholder.typicode.com/users").then((res)=>{
@@ -17,6 +18,7 @@ useEffect(()=>{
     return(
         <React.Fragment>
             <h2 style={{textAlign:'center'}}>This is about component</h2>
+            <BrowserRouter>
             <Table striped bordered hover>
             <thead>
                 <tr>
@@ -29,7 +31,6 @@ useEffect(()=>{
                 </tr>
                 </thead>
                 <tbody>
-                <BrowserRouter>
                 {
                     data.map((item,i=0)=>
                         <tr key={i+1}>
@@ -38,14 +39,14 @@ useEffect(()=>{
                         <td>{item.name}</td>
                         <td>{item.username}</td>
                         <td>{item.address.street},{item.address.zipcode}</td>
-                        <td><Link to={"/Profile/"+item.id}>Detail</Link></td>
+                        <td><Link to={"/profile/"+item.id}>Detail</Link></td>
                         </tr>
                     )
                 }
-                <Route path="/Profile/:id"><Profile /></Route>
-                </BrowserRouter>
                 </tbody>
+                <Route path="/Profile/:id"><Profile /></Route>
                 </Table>
+                </BrowserRouter>
         </React.Fragment>
     )
 }
