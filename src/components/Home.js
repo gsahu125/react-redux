@@ -1,17 +1,7 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import {Table} from 'react-bootstrap';
 export const Home = (props)=>{
 const [counter,setCounter] = useState(0);
-const [apidata,setApidata] = useState (null);
-
-useEffect(()=>{
-fetch('https://jsonplaceholder.typicode.com/todos')
-.then(res=> res.json())
-.then(result=>{
-  console.log(result[0]);
-  setApidata('api fetched');
-})
-},[])
 
     return(
         <React.Fragment>
@@ -47,7 +37,6 @@ fetch('https://jsonplaceholder.typicode.com/todos')
             }
              </tbody>
             </Table>
-            <h3>{apidata}</h3>
          
             
         </React.Fragment>
