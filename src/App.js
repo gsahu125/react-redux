@@ -1,8 +1,11 @@
 import React from 'react';
 import Header from './components/Header';
+import {Footer} from './components/Footer';
 import {Home} from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
+import {Login} from './components/Login';
+import {Signup} from './components/Signup';
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 function App() {
 
@@ -19,15 +22,21 @@ function App() {
      <Route path="/about">
        <About />
      </Route>
-     <Route path="/contact">
+     <Route path="/contact/:name">
        <Contact />
+     </Route>
+     <Route path="/login">
+    <Login />
+     </Route>
+     <Route path="/signup">
+       <Signup />
      </Route>
      <Route path="/">
        <Home data={data}/>
      </Route>
   </Switch>
+  <Footer />
      </BrowserRouter>
-    
    </React.Fragment>
   )
 }

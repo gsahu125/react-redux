@@ -1,12 +1,12 @@
-import React,{useState} from 'react';
+import React from 'react';
 import {Table} from 'react-bootstrap';
 export const Home = (props)=>{
-const [counter,setCounter] = useState(0);
+
 
     return(
         <React.Fragment>
-            <br></br>
-            <h2 style={{textAlign:'center'}}>Array of object recieved by props, Counter : {counter}</h2>
+         
+            <p style={{marginTop:'20px',textAlign:'center',fontStyle:'italic',fontWeight:'800'}}>Sample table from props</p>
             <Table striped bordered hover>
                     <thead>
                       <tr>
@@ -36,7 +36,7 @@ const [counter,setCounter] = useState(0);
             }
              </tbody>
             </Table>
-            <center><button onClick={()=>setCounter(counter+1)}>Update counter</button></center>
+    
             
         </React.Fragment>
     )

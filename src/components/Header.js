@@ -1,9 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Navbar,Nav,Form,FormControl,Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import '../Custom-style.css';
 
 const Header = ()=>{
+const [loginUser,setLoginUser] = useState('Guest')
+
+
     return(
         <React.Fragment>
         <Navbar bg="light" expand="lg">
@@ -13,7 +16,9 @@ const Header = ()=>{
                 <Nav className="mr-auto">
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
-                <Link to="/contact/name">Contact</Link>
+                <Link to={"/contact/"+loginUser}>Contact</Link>
+                <Link to="/login">Login</Link>
+                <Link to="/signup">Signup</Link>
                 </Nav>
                 <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
