@@ -4,13 +4,16 @@ import {Form,Button} from 'react-bootstrap';
 
 const Contact = ()=>{
     const {name} = useParams();
+    const paramtr = useParams();
+
     return(
         <React.Fragment>
             
             <div className="row justify-content-center">
             
             <div className="col-md-4">
-            <p style={{marginTop:'20px',textAlign:'center',fontStyle:'italic',fontWeight:'800'}}>Welcome to contact {name}</p>
+            <p style={{marginTop:'20px',textAlign:'center',fontStyle:'italic',fontWeight:'800'}}>
+                Welcome to contact {name} /OR : {paramtr.name}</p>
             <Form>
             <Form.Group>
             <Form.Label>Name</Form.Label>
