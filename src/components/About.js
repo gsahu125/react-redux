@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {Table,Button,Modal} from 'react-bootstrap';
+import {Table,Button,Modal,Pagination} from 'react-bootstrap';
 import Profile from '../components/Profile';
 
 const About = ()=>{
@@ -44,6 +44,22 @@ function openModelPopup(id)
     getUserDetail(id);
     setShow(true);
 }
+
+let active = 1;
+let items = [];
+for (let number = 1; number <= 5; number++) {
+    items.push(
+      <Pagination.Item key={number} active={number === active}>
+        {number}
+      </Pagination.Item>,
+    );
+  }
+  const paginationBasic = (
+    <div>
+      <Pagination>{items}</Pagination>
+    </div>
+  );
+
     return(
         <React.Fragment>
             <h2 style={{textAlign:'center'}}>This is about component</h2>
@@ -74,7 +90,7 @@ function openModelPopup(id)
                 }
                 </tbody>
                 </Table>
-
+                <span style={{float:'right'}}>{paginationBasic}</span>
                 <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                 <Modal.Title>Detail about : {userDetail.name}/UserId : {userDetail.id}</Modal.Title>
