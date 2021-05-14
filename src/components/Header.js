@@ -14,11 +14,11 @@ const [loginUser,setLoginUser] = useState('Guest')
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-                <Link to={"/contact/"+loginUser}>Contact</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Signup</Link>
+                <Link to="/" className="active">Home</Link>
+                <Link to="/about" >About</Link>
+                <Link to={"/contact/"+loginUser} >Contact</Link>
+                <Link to="/login" >Login</Link>
+                <Link to="/signup" >Signup</Link>
                 </Nav>
                 <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />

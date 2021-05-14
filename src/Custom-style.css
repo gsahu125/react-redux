@@ -1,3 +1,25 @@
-.mr-auto a{
-margin-right: 30px;
-}
+#basic-navbar-nav .mr-auto a {
+    color: Black;
+    font-weight:bold;
+    margin-right: 30px;
+    padding: 7px;
+    text-decoration: none;
+ }
+
+ #basic-navbar-nav .mr-auto :active {
+    color: Black;
+    background-color: gold;
+    font-weight:bold;
+    border-radius:0vmin;
+    border: 2px solid rgb(192, 185, 185);
+    border-radius: 10px;
+ }
+
+ #basic-navbar-nav .mr-auto .active {
+    color: Black;
+    background-color: gold;
+    font-weight:bold;
+    border-radius:0vmin;
+    border: 2px solid rgb(192, 185, 185);
+    border-radius: 10px;
+ }
