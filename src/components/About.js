@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react';
 import {Table,Button,Modal,Pagination} from 'react-bootstrap';
-import Profile from '../components/Profile';
 
 const About = ()=>{
 

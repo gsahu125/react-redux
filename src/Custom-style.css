@@ -23,3 +23,60 @@
     border: 2px solid rgb(192, 185, 185);
     border-radius: 10px;
  }
+
+ .form-group .text-muted
+ {
+    color :red !important;
+ }
+
+
+
+
+ 
+ #back-top {
+	position: fixed;
+	bottom: 30px;
+   right : 0px !important;
+}
+
+#back-top a {
+	width: 108px;
+	display: block;
+	text-align: center;
+	font: 11px/100% Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #bbb;
+
+	/* transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#back-top a:hover {
+	color: #000;
+}
+
+/* arrow icon (span tag) */
+#back-top span {
+	width: 108px;
+	height: 108px;
+	display: block;
+	margin-bottom: 7px;
+	background: #ddd url('./rocket1.png') no-repeat center center;
+   background-size: contain;
+
+	/* rounded corners */
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+
+	/* transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#back-top a:hover span {
+	background-color: #777;
+   font-size: 10px;
+}
