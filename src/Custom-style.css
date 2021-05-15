@@ -6,33 +6,33 @@
     text-decoration: none;
  }
 
- #basic-navbar-nav .mr-auto :active {
+ /* #basic-navbar-nav .mr-auto :active {
     color: Black;
     background-color: gold;
     font-weight:bold;
     border-radius:0vmin;
     border: 2px solid rgb(192, 185, 185);
     border-radius: 10px;
- }
+ } */
 
- #basic-navbar-nav .mr-auto .active {
+ /* #basic-navbar-nav .mr-auto .active {
     color: Black;
     background-color: gold;
     font-weight:bold;
     border-radius:0vmin;
     border: 2px solid rgb(192, 185, 185);
     border-radius: 10px;
- }
+ } */
 
- .form-group .text-muted
+ /* .form-group .text-muted
  {
     color :red !important;
- }
+ } */
 
 
 
 
- 
+ /* css for rocket */
  #back-top {
 	position: fixed;
 	bottom: 30px;
