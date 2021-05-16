@@ -4,9 +4,9 @@ import {Link, NavLink} from 'react-router-dom';
 import '../Custom-style.css';
 import Cart from './Cart'
 
-const Header = ()=>{
+const Header = (props)=>{
+
 const [loginUser,setLoginUser] = useState('Guest')
-const [cartCount,setCartCount] = useState(5)
 
     return(
         <React.Fragment>
@@ -24,9 +24,10 @@ const [cartCount,setCartCount] = useState(5)
                 </Nav>
                 <Form inline> 
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                <Button variant="outline-success">Search</Button>
+                <Button variant="outline-success">Search</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <Cart cartCount={props.cartCount} />
                 </Form>
-                <Cart count={cartCount}/>
+                
             </Navbar.Collapse>
             </Navbar>
         </React.Fragment>

@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {useParams} from 'react-router-dom';
-import {Form,Button} from 'react-bootstrap';
+import {Form,Button, Container,Row,Col} from 'react-bootstrap';
 
 const Contact = ()=>{
     const {name} = useParams();
@@ -41,35 +41,39 @@ const Contact = ()=>{
     
     return(
         <React.Fragment>
-            <div className="row justify-content-center">
-            <div className="col-md-4">
-            <p style={{marginTop:'20px',textAlign:'center',fontStyle:'italic',fontWeight:'800'}}>
+            <Container>
+                <Row className="justify-content-md-center">
+                <p style={{marginTop:'20px',textAlign:'center',fontStyle:'italic',fontWeight:'800'}}>
                 Welcome to contact {name} /OR : {paramtr.name}</p>
-            <Form onSubmit={handleSubmit}>
+                </Row>
+                <Row xs={12} md={4} lg={2} className="justify-content-md-center">
+                    <Col>
+                        <Form onSubmit={handleSubmit}>
+                        <Form.Group>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" value={fullname} onChange={(e)=>setFullname(e.target.value)} placeholder="Enter your Name" />
+                        <Form.Text className="text-muted">{errName}</Form.Text>
+                        </Form.Group>
 
-            <Form.Group>
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="text" value={fullname} onChange={(e)=>setFullname(e.target.value)} placeholder="Enter your Name" />
-            <Form.Text className="text-muted">{errName}</Form.Text>
-            </Form.Group>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Enter email" />
+                            <Form.Text className="text-muted">{errEmail}</Form.Text>
+                        </Form.Group>
 
-            <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Enter email" />
-                <Form.Text className="text-muted">{errEmail}</Form.Text>
-            </Form.Group>
-
-            <Form.Group controlId="exampleForm.ControlMessage">
-                <Form.Label>Message</Form.Label>
-                <Form.Control as="textarea" value={msg} onChange={(e)=>setMsg(e.target.value)} rows={3} />
-                <Form.Text className="text-muted">{errMsg}</Form.Text>
-            </Form.Group>
-        
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
-            </Form>
-            </div></div>
+                        <Form.Group controlId="exampleForm.ControlMessage">
+                            <Form.Label>Message</Form.Label>
+                            <Form.Control as="textarea" value={msg} onChange={(e)=>setMsg(e.target.value)} rows={3} />
+                            <Form.Text className="text-muted">{errMsg}</Form.Text>
+                        </Form.Group>
+                    
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
         </React.Fragment>
     )
 }

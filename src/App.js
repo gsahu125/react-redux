@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Header from './components/Header';
 import {Footer} from './components/Footer';
 import {Home} from './components/Home';
@@ -12,24 +12,30 @@ import {BrowserRouter,Route,Switch} from 'react-router-dom';
 
 function App() {
 
-  let data = [
-    {name:'gajendra',age:30,dob:'07-05-1991',maritalStatus:'married',designation:'web developer'},
-    {name:'gajju',age:30,dob:'07-05-1991',maritalStatus:'married',designation:'web designer'},
-    {name:'Monty',age:30,dob:'07-05-1991',maritalStatus:'married',designation:'full stack developer'},
-    {name:'Mona',age:30,dob:'07-05-1991',maritalStatus:'married',designation:'Mean stack developer'},
-    {name:'Monet',age:30,dob:'07-05-1991',maritalStatus:'married',designation:'Mern stack developer'}
-  ];
+  const [cartCount,setCartCount] = useState(0)
+
+  //create state to store cart items
+  const [cartDetail,setCartDetail] = useState([])
+
+  function addToCart(data)
+  {
+    setCartCount(cartCount+data.ItemAdded)
+    setCartDetail(data)
+    //console.warn(cartDetail)
+
+  }
+
 
   return (
    <React.Fragment>
      <BrowserRouter>
-     <Header />
+     <Header cartCount={cartCount} addToCart={addToCart} />
      <Switch>
      <Route path="/about">
        <About />
      </Route>
      <Route path="/product">
-       <Product />
+       <Product addToCart={addToCart}/>
      </Route>
      <Route path="/productdetail">
        <ProductDetail />
@@ -44,7 +50,7 @@ function App() {
        <Signup />
      </Route>
      <Route path="/">
-       <Home data={data}/>
+       <Home />
      </Route>
 
   </Switch>
@@ -54,8 +60,6 @@ function App() {
   </p>
   <Footer />
      </BrowserRouter>
-     
-  
    </React.Fragment>
   )
 }
