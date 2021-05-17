@@ -25,7 +25,7 @@ const [loginUser,setLoginUser] = useState('Guest')
                 <Form inline> 
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                 <Button variant="outline-success">Search</Button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <Cart cartCount={props.cartCount} />
+                <Cart data={props} />
                 </Form>
                 
             </Navbar.Collapse>
