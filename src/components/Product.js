@@ -4,15 +4,24 @@ import {Link,NavLink, BrowserRouter,Switch,Route} from 'react-router-dom';
 import ProductDetail from '../components/ProductDetail';
 
 const Product = (props)=>{
+//data to store product object array
 const [data,setData] = useState([])
 
+const [selectedProd,setSelectedProduct] = useState(null)
+
+function  getProducts()
+{
+    fetch('http://127.0.0.1:8000/api/listproduct').then((res)=>{
+        res.json().then((result)=>{
+            setData(result.listProduct)
+        })
+        })
+}
 useEffect(()=>{
-fetch('http://127.0.0.1:8000/api/listproduct').then((res)=>{
-res.json().then((result)=>{
-    setData(result.listProduct)
-})
-})
+    getProducts()
 },[])
+
+
 
     return(
         <React.Fragment>
@@ -29,7 +38,7 @@ res.json().then((result)=>{
             <Row>
                 <Col>
                     <Switch>
-                    <Route path="/:prodName" children={<ProductDetail addToCart={props.addToCart} />} />
+                    <Route path="/:name" children={<ProductDetail addToCart={props.addToCart} selectedProd={selectedProd} />} />
                     </Switch>
                 </Col>
                 <Col>
@@ -37,7 +46,7 @@ res.json().then((result)=>{
                         {
                             data.map((item)=>{
                                 return(
-                                    <Col><Link to={item.name}><Image src={item.image1} width="100%" rounded /></Link></Col>
+                                    <Col><Link to={"/product/"+item.name}><Image src={item.image1} onClick={()=>{setSelectedProduct(item.id)}} width="100%" rounded /></Link></Col>
                                 )
                             })
                         }

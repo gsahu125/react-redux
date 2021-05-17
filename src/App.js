@@ -13,15 +13,16 @@ import {BrowserRouter,Route,Switch} from 'react-router-dom';
 function App() {
 
   const [cartCount,setCartCount] = useState(0)
-
   //create state to store cart items
-  const [cartDetail,setCartDetail] = useState([])
+  const [cartDetail,setCartDetail] = useState({itemId:1,qty:1})
 
   function addToCart(data)
   {
-    setCartCount(cartCount+data.ItemAdded)
-    setCartDetail(data)
-    //console.warn(cartDetail)
+    setCartCount(cartCount + data.qty)
+    //setCartDetail({...cartDetail,itemName:data.itemName})
+    setCartDetail({itemId:data.itemId,qty:data.qty})
+    console.warn(cartDetail)
+    
 
   }
 
