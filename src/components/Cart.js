@@ -5,7 +5,7 @@ function Cart(props)
     return(
         <React.Fragment>
             <Button variant="secondary">
-            Cart Item <Badge variant="light">{props.cartCount}</Badge>
+            Cart Item <Badge variant="light">{props.data.cartData.length}</Badge>
             </Button>
         </React.Fragment>
     )
