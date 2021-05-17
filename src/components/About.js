@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {Table,Button,Modal} from 'react-bootstrap';
-import Profile from '../components/Profile';
+import {Table,Button,Modal,Pagination,Container,Row,Col} from 'react-bootstrap';
 
 const About = ()=>{
 
@@ -44,37 +43,62 @@ function openModelPopup(id)
     getUserDetail(id);
     setShow(true);
 }
+
+let active = 1;
+let items = [];
+for (let number = 1; number <= 5; number++) {
+    items.push(
+      <Pagination.Item key={number} active={number === active}>
+        {number}
+      </Pagination.Item>,
+    );
+  }
+  const paginationBasic = (
+    <div>
+      <Pagination>{items}</Pagination>
+    </div>
+  );
+
     return(
         <React.Fragment>
-            <h2 style={{textAlign:'center'}}>This is about component</h2>
-          
-            <Table striped bordered hover>
-            <thead>
-                <tr>
-                   <td>Id</td>
-                   <td>Name</td>
-                   <td>User Name</td>
-                   <td>Email</td>
-                   <td>Address</td>
-                   <td>Action</td>
-                </tr>
-                </thead>
-                <tbody>
-                {
-                    data.map((item,i=0)=>
-                        <tr key={i+1}>
-                        <td>{item.id}</td>
-                        <td>{item.email}</td>
-                        <td>{item.name}</td>
-                        <td>{item.username}</td>
-                        <td>{item.address.street},{item.address.zipcode}</td>
-                        <td><Button onClick={()=>openModelPopup(item.id)}>Detail</Button></td>
-                        </tr>
-                    )
-                }
-                </tbody>
-                </Table>
+            <Container>
+                <Row style={{marginTop:'30px'}}>
+                    <Col><h4 style={{textAlign:'center'}}>This is about component</h4></Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                            <td>Id</td>
+                            <td>Name</td>
+                            <td>User Name</td>
+                            <td>Email</td>
+                            <td>Address</td>
+                            <td>Action</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {
+                                data.map((item,i=0)=>
+                                    <tr key={i+1}>
+                                    <td>{item.id}</td>
+                                    <td>{item.email}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.username}</td>
+                                    <td>{item.address.street},{item.address.zipcode}</td>
+                                    <td><Button onClick={()=>openModelPopup(item.id)}>Detail</Button></td>
+                                    </tr>
+                                )
+                            }
+                            </tbody>
+                            </Table>
+                            <span style={{float:'right'}}>{paginationBasic}</span>
+                    </Col>
+                </Row>
+            </Container>
 
+                
                 <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                 <Modal.Title>Detail about : {userDetail.name}/UserId : {userDetail.id}</Modal.Title>

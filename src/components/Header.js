@@ -1,11 +1,12 @@
 import React,{useState} from 'react';
 import {Navbar,Nav,Form,FormControl,Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import '../Custom-style.css';
+import Cart from './Cart'
 
-const Header = ()=>{
+const Header = (props)=>{
+
 const [loginUser,setLoginUser] = useState('Guest')
-
 
     return(
         <React.Fragment>
@@ -14,16 +15,19 @@ const [loginUser,setLoginUser] = useState('Guest')
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-                <Link to={"/contact/"+loginUser}>Contact</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Signup</Link>
+                <NavLink exact to="/" activeStyle={{fontWeight: "bold",color: "red"}}>Home</NavLink>
+                <NavLink to="/about" activeStyle={{fontWeight: "bold",color: "red"}}>About</NavLink>
+                <NavLink to="/product" activeStyle={{fontWeight: "bold",color: "red"}}>Product</NavLink>
+                <NavLink to={"/contact/"+loginUser} activeStyle={{fontWeight: "bold",color: "red"}}>Contact</NavLink>
+                <NavLink to="/login" activeStyle={{fontWeight: "bold",color: "red"}}>Login</NavLink>
+                <NavLink to="/signup" activeStyle={{fontWeight: "bold",color: "red"}}>Signup</NavLink>
                 </Nav>
-                <Form inline>
+                <Form inline> 
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                <Button variant="outline-success">Search</Button>
+                <Button variant="outline-success">Search</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <Cart cartCount={props.cartCount} />
                 </Form>
+                
             </Navbar.Collapse>
             </Navbar>
         </React.Fragment>
